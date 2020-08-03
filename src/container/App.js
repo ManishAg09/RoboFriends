@@ -36,7 +36,10 @@ class App extends React.Component{
 	render(){
 
 		const filtered = this.state.robots.filter(robot => {
-			return robot.name.toLowerCase().includes(this.state.searchfields.toLowerCase())
+			return (
+				robot.name.toLowerCase().includes(this.state.searchfields.toLowerCase())||
+				robot.email.toLowerCase().includes(this.state.searchfields.toLowerCase())
+				)
 		})
 		return (this.state.robots.length === 0)?
 			<h3 className='tc'>Loading...</h3> :
